@@ -4,8 +4,7 @@ package exception.code;
  * 通用的异常码
  */
 public enum CommonExceptionCode implements ExceptionCode{
-    XXXX_CM_0000001("系统内部错误"),
-    ;
+    TO_JSON_STR_ERROR("解析JSON错误");
 
     private String message;
 
