@@ -1,4 +1,4 @@
-package ddd.auth.usecasea;
+package ddd.auth.usecase;
 
 import lombok.AccessLevel;
 import lombok.Getter;

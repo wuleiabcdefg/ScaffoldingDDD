@@ -1,9 +1,8 @@
 package ddd.web.controller;
 
-import ddd.common.AppResponseDTO;
 import ddd.auth.services.WelcomeAppService;
-import ddd.auth.usecasea.LoginUseCase;
-import jakarta.annotation.Resource;
+import ddd.auth.usecase.LoginUseCase;
+import ddd.common.AppResponseDTO;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +12,6 @@ public class WelcomeController {
 
     private WelcomeAppService indexAppServer;
 
-    @Resource
     public void setIndexAppServer(WelcomeAppService indexAppServer) {
         this.indexAppServer = indexAppServer;
     }

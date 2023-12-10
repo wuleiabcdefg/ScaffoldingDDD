@@ -4,8 +4,8 @@
 package ddd.auth.services;
 
 import ddd.common.AppResponseDTO;
-import ddd.auth.usecasea.LoginUseCase;
-import ddd.auth.usecasea.ShowPersonalInfoUseCase;
+import ddd.auth.usecase.LoginUseCase;
+import ddd.auth.usecase.ShowPersonalInfoUseCase;
 import org.springframework.stereotype.Component;
 
 /**

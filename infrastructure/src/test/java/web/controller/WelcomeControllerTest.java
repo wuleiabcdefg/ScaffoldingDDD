@@ -1,7 +1,7 @@
 package web.controller;
 
 import ddd.common.AppResponseDTO;
-import ddd.auth.usecasea.LoginUseCase;
+import ddd.auth.usecase.LoginUseCase;
 import ddd.utils.JsonUtil;
 import ddd.web.WebServerStarter;
 import ddd.web.controller.WelcomeController;
