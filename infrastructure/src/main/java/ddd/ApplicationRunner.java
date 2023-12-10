@@ -1,4 +1,4 @@
-package ddd.web;
+package ddd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,9 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = {"ddd.*"})
-public class WebServerStarter {
+public class ApplicationRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebServerStarter.class, args);
+        SpringApplication.run(ApplicationRunner.class, args);
     }
 }

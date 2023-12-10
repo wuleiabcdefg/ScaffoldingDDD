@@ -6,6 +6,7 @@ package ddd.auth.services;
 import ddd.common.AppResponseDTO;
 import ddd.auth.usecase.LoginUseCase;
 import ddd.auth.usecase.ShowPersonalInfoUseCase;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
  * @author wulei
  */
 @Component
+@Slf4j
 public class WelcomeAppService {
 
     /**
@@ -22,7 +24,7 @@ public class WelcomeAppService {
      */
     public AppResponseDTO<Void> login(LoginUseCase.Request loginRequest) {
 
-        System.out.println("login " + loginRequest.getUserName() + "##" + loginRequest.getPassword());
+        log.info("login request:{}", "login " + loginRequest.getUserName() + "##" + loginRequest.getPassword());
 
         return AppResponseDTO.ok();
     }
@@ -32,8 +34,6 @@ public class WelcomeAppService {
      * @param request 请求参数
      */
     public AppResponseDTO<ShowPersonalInfoUseCase.Response> showPersonalInfo(ShowPersonalInfoUseCase.Request request) {
-//        ShowPersonalInfoUseCase showPersonalInfoUseCase = new ShowPersonalInfoUseCase();
-//        System.out.println("login " + loginRequest.getUserName() + "##" + loginRequest.getPassword());
 
         return AppResponseDTO.ok();
     }

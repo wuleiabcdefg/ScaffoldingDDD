@@ -1,9 +1,10 @@
 package ddd.web.controller;
 
+import ddd.adapter.service.http.WelcomeController;
 import ddd.auth.usecase.LoginUseCase;
 import ddd.common.AppResponseDTO;
 import ddd.utils.JsonUtil;
-import ddd.web.WebServerStarter;
+import ddd.ApplicationRunner;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 //增加junit5 spring 的注解
-@SpringBootTest(classes = WebServerStarter.class)
+@SpringBootTest(classes = ApplicationRunner.class)
 class WelcomeControllerTest {
 
     @Autowired

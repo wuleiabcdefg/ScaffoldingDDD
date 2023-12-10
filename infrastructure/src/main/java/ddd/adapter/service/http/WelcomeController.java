@@ -1,4 +1,4 @@
-package ddd.web.controller;
+package ddd.adapter.service.http;
 
 import ddd.auth.services.WelcomeAppService;
 import ddd.auth.usecase.LoginUseCase;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WelcomeController {
 
-    private WelcomeAppService indexAppServer;
+    private WelcomeAppService welcomeAppService;
 
     @RequestMapping("/welcome/login")
     public AppResponseDTO<Void> login(@RequestBody LoginUseCase.Request loginRequest) {
-        return indexAppServer.login(loginRequest);
+        return welcomeAppService.login(loginRequest);
     }
 }
