@@ -1,10 +1,9 @@
-package web.controller;
+package ddd.web.controller;
 
-import ddd.common.AppResponseDTO;
 import ddd.auth.usecase.LoginUseCase;
+import ddd.common.AppResponseDTO;
 import ddd.utils.JsonUtil;
 import ddd.web.WebServerStarter;
-import ddd.web.controller.WelcomeController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,11 +17,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @SpringBootTest(classes = WebServerStarter.class)
 class WelcomeControllerTest {
 
-    private MockMvc mockMvc;
     @Autowired
     private WelcomeController welcomeController;
-
-
 
     @Test
     void testLogin() throws Exception {
