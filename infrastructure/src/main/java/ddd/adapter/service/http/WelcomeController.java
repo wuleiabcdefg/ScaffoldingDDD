@@ -2,7 +2,7 @@ package ddd.adapter.service.http;
 
 import ddd.auth.services.WelcomeAppService;
 import ddd.auth.usecase.LoginUseCase;
-import ddd.common.AppResponseDTO;
+import ddd.auth.usecase.ShowPersonalInfoUseCase;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +16,12 @@ public class WelcomeController {
     private WelcomeAppService welcomeAppService;
 
     @RequestMapping("/welcome/login")
-    public AppResponseDTO<Void> login(@RequestBody LoginUseCase.Request loginRequest) {
-        return welcomeAppService.login(loginRequest);
+    public void login(@RequestBody LoginUseCase.Request loginRequest) {
+        welcomeAppService.login(loginRequest);
+    }
+
+    @RequestMapping("/welcome/showPersonalInfo")
+    public ShowPersonalInfoUseCase.Response showPersonalInfo(@RequestBody ShowPersonalInfoUseCase.Request request) {
+        return welcomeAppService.showPersonalInfo(request);
     }
 }

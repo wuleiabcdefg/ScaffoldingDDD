@@ -1,10 +1,13 @@
 package ddd.common;
 
+import exception.code.ExceptionCode;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
+@EqualsAndHashCode
 public class AppResponseDTO<T> {
 
     /**
@@ -14,7 +17,7 @@ public class AppResponseDTO<T> {
     /**
      * 错误码
      */
-    private Integer errCode;
+    private String errCode;
 
     /**
      * 描述
@@ -30,6 +33,14 @@ public class AppResponseDTO<T> {
      * 响应数据
      */
     private T data;
+
+    /**
+     * 不可删除， jackson反序列化转JSON时使用
+     */
+    @SuppressWarnings("unused")
+    public AppResponseDTO() {
+        this(Boolean.FALSE);
+    }
 
     private AppResponseDTO(Boolean success) {
         if (success == null) {
@@ -52,10 +63,18 @@ public class AppResponseDTO<T> {
 
     /**
      * 返回默认成功的状态信息，无业务数据
+     *
      * @return 正确结果
      */
     public static <T> AppResponseDTO<T> ok() {
         return ok(null);
     }
 
+    public static AppResponseDTO<Void> error(AppErrorType errorType, ExceptionCode exceptionCode) {
+        AppResponseDTO<Void> tAppResponseDTO = new AppResponseDTO<>(Boolean.FALSE);
+        tAppResponseDTO.setErrorType(errorType.getErrorType());
+        tAppResponseDTO.setMessage(exceptionCode.getMessage());
+        tAppResponseDTO.setErrCode(exceptionCode.getCode());
+        return tAppResponseDTO;
+    }
 }

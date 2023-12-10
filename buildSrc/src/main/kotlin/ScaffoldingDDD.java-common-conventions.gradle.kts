@@ -18,6 +18,7 @@ repositories {
 
 dependencies {
     implementation("org.slf4j:slf4j-api:2.0.9")
+    implementation("com.google.guava:guava:32.1.3-jre")
     compileOnly("org.projectlombok:lombok:1.18.28")
     annotationProcessor("org.projectlombok:lombok:1.18.28")
     testCompileOnly("org.projectlombok:lombok:1.18.28")

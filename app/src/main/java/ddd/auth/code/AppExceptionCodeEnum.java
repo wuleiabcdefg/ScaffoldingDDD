@@ -1,14 +1,13 @@
-package exception.code;
+package ddd.auth.code;
 
-/**
- * 通用的异常码
- */
-public enum CommonExceptionCode implements ExceptionCode{
-    TO_JSON_STR_ERROR("解析JSON错误");
+import exception.code.ExceptionCode;
+
+public enum AppExceptionCodeEnum implements ExceptionCode {
+    USER_NOT_FOUND("用户未找到");
 
     private final String message;
 
-    CommonExceptionCode(String message) {
+    AppExceptionCodeEnum(String message) {
         this.message = message;
     }
 

@@ -3,10 +3,15 @@
  */
 package ddd.auth.services;
 
-import ddd.common.AppResponseDTO;
+import ddd.auth.code.AppExceptionCodeEnum;
 import ddd.auth.usecase.LoginUseCase;
 import ddd.auth.usecase.ShowPersonalInfoUseCase;
+import ddd.repository.IUserRepository;
+import ddd.user.User;
+import exception.BusinessRuntimeException;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,25 +21,40 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
+@Setter(onMethod = @__(@Autowired))
 public class WelcomeAppService {
+
+    private IUserRepository userRepository;
+
 
     /**
      * 登录
+     *
      * @param loginRequest 请求参数
      */
-    public AppResponseDTO<Void> login(LoginUseCase.Request loginRequest) {
+    public void login(LoginUseCase.Request loginRequest) {
 
         log.info("login request:{}", "login " + loginRequest.getUserName() + "##" + loginRequest.getPassword());
 
-        return AppResponseDTO.ok();
     }
 
     /**
      * 展示个人信息
+     *
      * @param request 请求参数
      */
-    public AppResponseDTO<ShowPersonalInfoUseCase.Response> showPersonalInfo(ShowPersonalInfoUseCase.Request request) {
+    public ShowPersonalInfoUseCase.Response showPersonalInfo(ShowPersonalInfoUseCase.Request request) {
 
-        return AppResponseDTO.ok();
+        String userId = request.getUserId();
+        User userInfo = userRepository.getUserById(userId);
+
+        if (userInfo == null) {
+            throw new BusinessRuntimeException(AppExceptionCodeEnum.USER_NOT_FOUND);
+        }
+
+        ShowPersonalInfoUseCase.Response resp = new ShowPersonalInfoUseCase.Response();
+        resp.setUserName(userInfo.getUserName());
+        resp.setUserId(userInfo.getUserId());
+        return resp;
     }
 }

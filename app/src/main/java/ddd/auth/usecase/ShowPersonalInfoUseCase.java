@@ -1,9 +1,6 @@
 package ddd.auth.usecase;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ShowPersonalInfoUseCase {
@@ -16,9 +13,9 @@ public class ShowPersonalInfoUseCase {
 
     @Setter
     @Getter
-    public static class Response {
+    public static class Response{
         private String userId;
-        private String name;
+        private String userName;
         private String email;
         private String phoneNumber;
     }
