@@ -20,6 +20,7 @@ public class JsonUtil {
             throw new ServerInternalRuntimeException(CommonExceptionCode.TO_JSON_STR_ERROR, e);
         }
     }
+    @SuppressWarnings("unused")
     @SneakyThrows
     public static <T> T fromJson(String json, Class<T> clazz) {
         return MAPPER.readValue(json, clazz);

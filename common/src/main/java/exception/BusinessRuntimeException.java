@@ -10,6 +10,7 @@ import java.io.Serial;
  *  例如输入的日期格式错误导致DateFormat报错
  */
 @Getter
+@SuppressWarnings("unused")
 public class BusinessRuntimeException extends RuntimeException {
     @Serial
     private static final long serialVersionUID = 1L;
