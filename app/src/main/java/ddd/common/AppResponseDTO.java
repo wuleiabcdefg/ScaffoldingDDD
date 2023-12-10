@@ -1,0 +1,61 @@
+package ddd.common;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class AppResponseDTO<T> {
+
+    /**
+     * 业务请求是否成功
+     */
+    private Boolean success;
+    /**
+     * 错误码
+     */
+    private Integer errCode;
+
+    /**
+     * 描述
+     */
+    private String message;
+
+    /**
+     * 异常类别 参考 {@link AppErrorType}
+     */
+    private String errorType;
+
+    /**
+     * 响应数据
+     */
+    private T data;
+
+    private AppResponseDTO(Boolean success) {
+        if (success == null) {
+            throw new NullPointerException("success is null");
+        }
+        this.setSuccess(success);
+    }
+
+    /**
+     * 成功默认成功状态，有业务数据
+     *
+     * @param data 业务数据可以是List、Entity等数据
+     * @return 正确结果
+     */
+    public static <T> AppResponseDTO<T> ok(T data) {
+        AppResponseDTO<T> tAppResponseDTO = new AppResponseDTO<>(Boolean.TRUE);
+        tAppResponseDTO.setData(data);
+        return tAppResponseDTO;
+    }
+
+    /**
+     * 返回默认成功的状态信息，无业务数据
+     * @return 正确结果
+     */
+    public static <T> AppResponseDTO<T> ok() {
+        return ok(null);
+    }
+
+}
