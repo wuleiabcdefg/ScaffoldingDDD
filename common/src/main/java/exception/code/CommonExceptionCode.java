@@ -6,7 +6,7 @@ package exception.code;
 public enum CommonExceptionCode implements ExceptionCode{
     TO_JSON_STR_ERROR("解析JSON错误");
 
-    private String message;
+    private final String message;
 
     CommonExceptionCode(String message) {
         this.message = message;
