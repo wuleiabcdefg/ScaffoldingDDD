@@ -45,16 +45,16 @@ public class WelcomeAppService {
      */
     public ShowPersonalInfoUseCase.Response showPersonalInfo(ShowPersonalInfoUseCase.Request request) {
 
-        String userId = request.getUserId();
+        Long userId = request.getUserId();
         User userInfo = userRepository.getUserById(userId);
 
-        if (userInfo == null) {
+        if (userInfo==null) {
             throw new BusinessRuntimeException(AppExceptionCodeEnum.USER_NOT_FOUND);
         }
 
         ShowPersonalInfoUseCase.Response resp = new ShowPersonalInfoUseCase.Response();
         resp.setUserName(userInfo.getUserName());
-        resp.setUserId(userInfo.getUserId());
+        resp.setUserId(userInfo.getUserId().id());
         return resp;
     }
 }

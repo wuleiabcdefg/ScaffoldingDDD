@@ -1,1 +1,21 @@
-debug: true
+spring:
+  datasource:
+    # http://localhost:8080/h2-console/
+    # url: jdbc:h2:mem:testdb
+    # h2的文件创建在家目录
+    # url: jdbc:h2:file:~/data/DDDemo.db
+
+    url: jdbc:h2:file:~/data/DDDemo.db
+    driver-class-name: org.h2.Driver
+    # 无需用户名
+    username: sa
+    # 无需密码
+    password: password
+
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

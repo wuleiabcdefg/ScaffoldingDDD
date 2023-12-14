@@ -13,8 +13,8 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":app"))
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    runtimeOnly("com.h2database:h2")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-//    implementation("io.r2dbc:r2dbc-spi:0.8.4.RELEASE")
-
-
 }
