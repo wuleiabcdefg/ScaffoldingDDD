@@ -1,4 +1,4 @@
-package exception.code;
+package base.exception.code;
 
 @SuppressWarnings("unused")
 public interface ExceptionCode {

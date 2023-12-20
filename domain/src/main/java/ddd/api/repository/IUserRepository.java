@@ -1,4 +1,4 @@
-package ddd.repository;
+package ddd.api.repository;
 
 import ddd.user.User;
 

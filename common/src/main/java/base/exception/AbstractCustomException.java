@@ -1,6 +1,6 @@
-package exception;
+package base.exception;
 
-import exception.code.ExceptionCode;
+import base.exception.code.ExceptionCode;
 import lombok.Getter;
 
 import java.io.Serial;

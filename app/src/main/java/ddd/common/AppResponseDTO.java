@@ -1,6 +1,6 @@
 package ddd.common;
 
-import exception.code.ExceptionCode;
+import base.exception.code.ExceptionCode;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,7 +43,7 @@ public class AppResponseDTO<T> {
     }
 
     private AppResponseDTO(Boolean success) {
-        if (success == null) {
+        if (success==null) {
             throw new NullPointerException("success is null");
         }
         this.setSuccess(success);

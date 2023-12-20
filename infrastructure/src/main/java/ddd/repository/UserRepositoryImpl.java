@@ -1,5 +1,6 @@
 package ddd.repository;
 
+import ddd.api.repository.IUserRepository;
 import ddd.repository.assembler.UserAssembler;
 import ddd.repository.db.UserJpa;
 import ddd.repository.db.UserRoleJpa;

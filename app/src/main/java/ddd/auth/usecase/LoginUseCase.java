@@ -13,7 +13,7 @@ public class LoginUseCase {
 
     @Setter
     @Getter
-    public static class Request{
+    public static class Request {
         private String userName;
         private String password;
     }

@@ -1,6 +1,6 @@
 package ddd.auth.code;
 
-import exception.code.ExceptionCode;
+import base.exception.code.ExceptionCode;
 
 public enum AppExceptionCodeEnum implements ExceptionCode {
     USER_NOT_FOUND("用户未找到");

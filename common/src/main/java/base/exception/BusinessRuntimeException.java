@@ -1,6 +1,6 @@
-package exception;
+package base.exception;
 
-import exception.code.ExceptionCode;
+import base.exception.code.ExceptionCode;
 
 /**
  * 可以处理的业务异常，

@@ -5,7 +5,6 @@
 plugins {
     // Apply the java Plugin to add support for Java.
     java
-
 }
 
 repositories {
@@ -18,7 +17,7 @@ repositories {
 
 dependencies {
     implementation("org.slf4j:slf4j-api:2.0.9")
-    implementation("com.google.guava:guava:32.1.3-jre")
+    implementation("cn.hutool:hutool-all:5.8.23")
     compileOnly("org.projectlombok:lombok:1.18.28")
     annotationProcessor("org.projectlombok:lombok:1.18.28")
     testCompileOnly("org.projectlombok:lombok:1.18.28")
@@ -33,7 +32,7 @@ dependencies {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
 
