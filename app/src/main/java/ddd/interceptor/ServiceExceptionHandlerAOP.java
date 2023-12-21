@@ -10,13 +10,19 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+/**
+ * 异常处理切面
+ */
 @Aspect
 @Component
 @Slf4j
 public class ServiceExceptionHandlerAOP {
 
 
-    @Pointcut(value = "execution(public * ddd.services.*.*(..))")
+    /**
+     * 切点 所有应用层服务的公共方法 排除set方法
+     */
+    @Pointcut(value = "execution(public * ddd.services.*.*(..)) && !execution(public * ddd..*.set*(..)) ")
     public void pointCut() {
 
     }
