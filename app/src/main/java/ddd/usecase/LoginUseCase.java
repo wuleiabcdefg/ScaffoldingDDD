@@ -1,25 +1,20 @@
-package ddd.auth.usecase;
+package ddd.usecase;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * 登录
+ */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ShowPersonalInfoUseCase {
+public class LoginUseCase {
 
     @Setter
     @Getter
     public static class Request {
-        private Long userId;
-    }
-
-    @Setter
-    @Getter
-    public static class Response {
-        private Long userId;
         private String userName;
-        private String email;
-        private String phoneNumber;
+        private String password;
     }
 }

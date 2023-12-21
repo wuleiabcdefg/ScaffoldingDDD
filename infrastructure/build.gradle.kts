@@ -4,13 +4,16 @@
 
 plugins {
     id("ScaffoldingDDD.java-library-conventions")
-    id("io.spring.dependency-management") version "1.1.4"
-}
+    alias(libs.plugins.springBoot)
 
+}
+apply(plugin = "io.spring.dependency-management")
 dependencies {
     implementation(project(":common"))
     implementation(project(":domain"))
     implementation(project(":app"))
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     runtimeOnly("com.h2database:h2")
 

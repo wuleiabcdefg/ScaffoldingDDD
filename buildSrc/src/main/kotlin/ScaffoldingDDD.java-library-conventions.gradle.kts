@@ -5,8 +5,6 @@
 plugins {
     // Apply the common convention plugin for shared build configuration between library and application projects.
     id("ScaffoldingDDD.java-common-conventions")
-//    id("org.springframework.boot") version "3.2.0"
-//    id("io.spring.dependency-management") version "1.1.4"
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
 }

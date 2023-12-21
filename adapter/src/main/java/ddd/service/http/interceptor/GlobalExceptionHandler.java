@@ -1,13 +1,10 @@
-package ddd.adapter.service.http.interceptor;
+package ddd.service.http.interceptor;
 
 
 import base.exception.AbstractCustomException;
 import base.exception.BusinessRuntimeException;
-import base.exception.code.CommonExceptionCodeEnum;
 import ddd.common.AppErrorType;
 import ddd.common.AppResponseDTO;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,23 +22,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    private final Logger log = LoggerFactory.getLogger(getClass());
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(AbstractCustomException.class)
     @ResponseBody
-    public AppResponseDTO<Void> error(Exception ex) {
-        log.error("拦截异常打印 ", ex);
-
+    public AppResponseDTO<Void> error(AbstractCustomException ex) {
         AppErrorType errorType = AppErrorType.INTERNAL_ERROR;
 
-        if (ex instanceof AbstractCustomException e) {
-            if (e instanceof BusinessRuntimeException) {
-                errorType = AppErrorType.BUSINESS_ERROR;
-            }
-            return AppResponseDTO.error(errorType, e.getExceptionCode());
+        if (ex instanceof BusinessRuntimeException) {
+            errorType = AppErrorType.BUSINESS_ERROR;
         }
-
-        return AppResponseDTO.error(errorType, CommonExceptionCodeEnum.UNKNOWN_ERROR);
+        return AppResponseDTO.error(errorType, ex.getExceptionCode());
     }
 
 }

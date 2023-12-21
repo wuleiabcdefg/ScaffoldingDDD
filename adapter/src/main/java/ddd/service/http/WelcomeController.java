@@ -1,8 +1,8 @@
-package ddd.adapter.service.http;
+package ddd.service.http;
 
-import ddd.auth.services.WelcomeAppService;
-import ddd.auth.usecase.LoginUseCase;
-import ddd.auth.usecase.ShowPersonalInfoUseCase;
+import ddd.services.WelcomeAppService;
+import ddd.usecase.LoginUseCase;
+import ddd.usecase.ShowPersonalInfoUseCase;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

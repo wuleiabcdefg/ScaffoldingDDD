@@ -1,4 +1,4 @@
-package ddd.adapter.service.http.interceptor;
+package ddd.service.http.interceptor;
 
 import ddd.common.AppResponseDTO;
 import org.springframework.core.MethodParameter;
@@ -24,7 +24,7 @@ public class ResponseBodyHandler implements ResponseBodyAdvice {
         if (body instanceof AppResponseDTO) {
             return body;
         }
-        if (body != null) {
+        if (body!=null) {
             return AppResponseDTO.ok(body);
         }
         return AppResponseDTO.ok();

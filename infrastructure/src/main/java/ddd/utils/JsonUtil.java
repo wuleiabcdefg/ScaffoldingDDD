@@ -2,6 +2,7 @@ package ddd.utils;
 
 import base.exception.ServerInternalRuntimeException;
 import base.exception.code.CommonExceptionCodeEnum;
+import cn.hutool.core.util.ObjectUtil;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -9,7 +10,6 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.google.common.base.Strings;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -73,7 +73,7 @@ public class JsonUtil {
      */
     public static <T> T fromJson(String json, Class<T> clazz) {
         T obj = null;
-        if (!Strings.isNullOrEmpty(json) && clazz!=null) {
+        if (!ObjectUtil.isEmpty(json) && clazz!=null) {
             try {
                 obj = OBJECT_MAPPER.readValue(json, clazz);
             } catch (IOException e) {

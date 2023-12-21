@@ -1,4 +1,4 @@
-package ddd.auth.code;
+package ddd.code;
 
 import base.exception.code.ExceptionCode;
 

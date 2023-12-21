@@ -4,7 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-/** web服务
+/**
+ * web服务
+ *
  * @author wulei
  */
 @SpringBootApplication

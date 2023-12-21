@@ -5,8 +5,10 @@ import lombok.Getter;
 
 import java.io.Serial;
 
+/**
+ * 主要分为业务异常和系统异常。系统异常需要开发团队处理。业务异常需要具备监控能力。
+ */
 @Getter
-
 public abstract class AbstractCustomException extends RuntimeException {
 
     @Serial

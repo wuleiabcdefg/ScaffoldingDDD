@@ -4,10 +4,16 @@
 plugins {
     id("ScaffoldingDDD.java-common-conventions")
     alias(libs.plugins.springBoot)
-    alias(libs.plugins.springDependencyManagement)
+
 }
 
+apply(plugin = "io.spring.dependency-management")
 dependencies {
+    implementation(project(":adapter"))
+    implementation(project(":infrastructure"))
+    implementation(project(":domain"))
+    implementation(project(":common"))
+    implementation(project(":app"))
     implementation("org.springframework.boot:spring-boot-starter-web")
 }
 

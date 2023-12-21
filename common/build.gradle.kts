@@ -3,6 +3,8 @@
  */
 plugins {
     id("ScaffoldingDDD.java-library-conventions")
+    alias(libs.plugins.springBoot)
+
 }
 
 //application {
