@@ -36,6 +36,7 @@ public class WelcomeAppService {
 
         log.info("login request:{}", "login " + loginRequest.getUserName() + "##" + loginRequest.getPassword());
 
+
     }
 
     /**
