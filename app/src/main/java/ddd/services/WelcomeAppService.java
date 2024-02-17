@@ -4,11 +4,11 @@
 package ddd.services;
 
 import base.exception.BusinessRuntimeException;
-import ddd.api.repository.IUserRepository;
+import ddd.api.IUserRepository;
+import ddd.auth.model.user.User;
 import ddd.code.AppExceptionCodeEnum;
 import ddd.usecase.LoginUseCase;
 import ddd.usecase.ShowPersonalInfoUseCase;
-import ddd.user.User;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

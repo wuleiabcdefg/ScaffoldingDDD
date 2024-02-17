@@ -1,6 +1,6 @@
-package ddd.api.repository;
+package ddd.api;
 
-import ddd.user.User;
+import ddd.auth.model.user.User;
 
 public interface IUserRepository {
     User getUserById(Long userId);

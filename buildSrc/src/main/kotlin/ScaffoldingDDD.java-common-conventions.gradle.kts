@@ -27,6 +27,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    // springboot测试
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

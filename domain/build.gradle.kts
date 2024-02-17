@@ -4,9 +4,12 @@
 
 plugins {
     id("ScaffoldingDDD.java-library-conventions")
+    alias(libs.plugins.springBoot)
 }
-
+apply(plugin = "io.spring.dependency-management")
 dependencies {
     implementation(project(":common"))
-
+    implementation("org.springframework:spring-context")
 }
+
+

@@ -1,12 +1,12 @@
 package ddd.repository;
 
-import ddd.api.repository.IUserRepository;
+import ddd.api.IUserRepository;
+import ddd.auth.model.user.User;
 import ddd.repository.assembler.UserAssembler;
 import ddd.repository.db.UserJpa;
 import ddd.repository.db.UserRoleJpa;
 import ddd.repository.db.entity.UserRecord;
 import ddd.repository.db.entity.UserRoleRecord;
-import ddd.user.User;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

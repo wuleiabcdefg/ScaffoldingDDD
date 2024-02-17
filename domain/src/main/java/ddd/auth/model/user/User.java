@@ -1,6 +1,6 @@
-package ddd.user;
+package ddd.auth.model.user;
 
-import ddd.role.RoleId;
+import ddd.auth.model.role.RoleId;
 import lombok.Getter;
 import lombok.Setter;
 

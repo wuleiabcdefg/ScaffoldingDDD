@@ -1,4 +1,4 @@
-package ddd.role;
+package ddd.auth.model.role;
 
 public record RoleId(Long id) {
 }

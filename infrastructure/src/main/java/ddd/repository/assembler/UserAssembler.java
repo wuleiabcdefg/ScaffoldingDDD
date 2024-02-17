@@ -1,10 +1,10 @@
 package ddd.repository.assembler;
 
+import ddd.auth.model.role.RoleId;
+import ddd.auth.model.user.User;
+import ddd.auth.model.user.UserId;
 import ddd.repository.db.entity.UserRecord;
 import ddd.repository.db.entity.UserRoleRecord;
-import ddd.role.RoleId;
-import ddd.user.User;
-import ddd.user.UserId;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
