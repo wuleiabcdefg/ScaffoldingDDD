@@ -16,8 +16,8 @@ public class WelcomeController {
     private WelcomeAppService welcomeAppService;
 
     @RequestMapping("/welcome/login")
-    public void login(@RequestBody LoginUseCase.Request loginRequest) {
-        welcomeAppService.login(loginRequest);
+    public String login(@RequestBody LoginUseCase.Request loginRequest) {
+        return welcomeAppService.login(loginRequest);
     }
 
     @RequestMapping("/welcome/showPersonalInfo")
