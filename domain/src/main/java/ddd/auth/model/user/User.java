@@ -15,11 +15,27 @@ public class User {
     /**
      * 唯一ID
      */
-    private UserId userId;
+    private EmployeeID userId;
     /**
      * 用户姓名
      */
     private String userName;
+    /**
+     * 登录名
+     */
+    private String loginName;
+    /**
+     * 工号
+     */
+    private String employeeNumber;
+    /**
+     * 用户密码
+     */
+    private String password;
+    /**
+     * 职位
+     */
+    private String position;
     /**
      * 年龄
      */

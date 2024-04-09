@@ -1,12 +1,12 @@
 package ddd.repository;
 
-import ddd.api.IUserRepository;
+import ddd.api.UserRepository;
 import ddd.auth.model.user.User;
 import ddd.repository.assembler.UserAssembler;
 import ddd.repository.db.UserJpa;
 import ddd.repository.db.UserRoleJpa;
-import ddd.repository.db.entity.UserRecord;
-import ddd.repository.db.entity.UserRoleRecord;
+import ddd.repository.db.entity.Employee;
+import ddd.repository.db.entity.EmployeeRole;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Component
 @Setter(onMethod = @__(@Autowired))
-public class UserRepositoryImpl implements IUserRepository {
+public class UserRepositoryImpl implements UserRepository {
 
     private UserJpa userJpa;
 
@@ -24,8 +24,17 @@ public class UserRepositoryImpl implements IUserRepository {
 
     @Override
     public User getUserById(Long userId) {
-        final Optional<UserRecord> userJpaById = userJpa.findById(userId);
-        final List<UserRoleRecord> roles = userRoleJpa.findByUserId(userId);
-        return userJpaById.map(userRecord -> UserAssembler.toUser(userRecord, roles)).orElse(null);
+        final Optional<Employee> userJpaById = userJpa.findById(userId);
+        final List<EmployeeRole> roles = userRoleJpa.findByEmployeeId(userId);
+        return userJpaById.map(employee -> UserAssembler.toUser(employee, roles)).orElse(null);
+    }
+
+    @Override
+    public User findUser(final String loginName) {
+        final Employee employee = userJpa.findByLoginName(loginName);
+        if (employee!=null) {
+            return UserAssembler.toUser(employee, List.of());
+        }
+        return null;
     }
 }

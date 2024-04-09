@@ -1,8 +1,9 @@
 package ddd.repository.db;
 
-import ddd.repository.db.entity.UserRecord;
+import ddd.repository.db.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserJpa extends JpaRepository<UserRecord, Long> {
+public interface UserJpa extends JpaRepository<Employee, Long> {
 
+    Employee findByLoginName(String loginName);
 }

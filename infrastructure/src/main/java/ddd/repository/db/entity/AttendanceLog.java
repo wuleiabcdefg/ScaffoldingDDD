@@ -1,25 +1,20 @@
 package ddd.repository.db.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
-@Table(name = "USER_ROLE")
 @Entity
 @Setter
 @Getter
-@ToString
-public class UserRoleRecord {
-
+@Table(name = "AttendanceLog")
+public class AttendanceLog {
     @Id
-    private Long id;
-
-    private Long userId;
-
-    private Long roleId;
+    private Long recordId;
+    private Long employeeId;
+    private String date;
+    private String hourSecond;
 
 }

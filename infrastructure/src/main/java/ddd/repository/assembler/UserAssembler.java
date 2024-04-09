@@ -1,10 +1,11 @@
 package ddd.repository.assembler;
 
+import cn.hutool.core.convert.Convert;
 import ddd.auth.model.role.RoleId;
+import ddd.auth.model.user.EmployeeID;
 import ddd.auth.model.user.User;
-import ddd.auth.model.user.UserId;
-import ddd.repository.db.entity.UserRecord;
-import ddd.repository.db.entity.UserRoleRecord;
+import ddd.repository.db.entity.Employee;
+import ddd.repository.db.entity.EmployeeRole;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -14,11 +15,12 @@ import java.util.List;
 public final class UserAssembler {
 
 
-    public static User toUser(UserRecord userRecord, List<UserRoleRecord> roles) {
-        User user = new User();
-        user.setUserId(new UserId(userRecord.getId()));
-        user.setUserName(userRecord.getUserName());
-        user.setRoles(roles.stream().map(userRoleRecord -> new RoleId(userRoleRecord.getRoleId())).toList());
+    public static User toUser(Employee employee, List<EmployeeRole> roles) {
+        final User user = Convert.convert(User.class, employee);
+
+        user.setUserId(new EmployeeID(employee.getEmployeeID()));
+        user.setUserName(employee.getName());
+        user.setRoles(roles.stream().map(employeeRole -> new RoleId(employeeRole.getRoleId())).toList());
         return user;
     }
 }

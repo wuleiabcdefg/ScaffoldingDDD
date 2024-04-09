@@ -1,23 +1,26 @@
 package ddd.service.http;
 
+import ddd.common.AppResponseDTO;
 import ddd.services.WelcomeAppService;
 import ddd.usecase.LoginUseCase;
 import ddd.usecase.ShowPersonalInfoUseCase;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Setter(onMethod = @__(@Autowired))
 @RestController
 public class WelcomeController {
-
+    @Autowired
     private WelcomeAppService welcomeAppService;
 
+    /* 登录
+     * @param loginRequest
+     */
     @RequestMapping("/welcome/login")
-    public String login(@RequestBody LoginUseCase.Request loginRequest) {
-        return welcomeAppService.login(loginRequest);
+    public AppResponseDTO<String> login(@RequestBody LoginUseCase.Request loginRequest) {
+        final String token = welcomeAppService.login(loginRequest);
+        return AppResponseDTO.ok(token);
     }
 
     @RequestMapping("/welcome/showPersonalInfo")

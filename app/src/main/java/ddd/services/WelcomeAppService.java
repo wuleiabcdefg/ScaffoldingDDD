@@ -4,7 +4,7 @@
 package ddd.services;
 
 import base.exception.BusinessRuntimeException;
-import ddd.api.IUserRepository;
+import ddd.api.UserRepository;
 import ddd.auth.AuthenticationService;
 import ddd.auth.model.user.User;
 import ddd.code.AppExceptionCodeEnum;
@@ -25,7 +25,7 @@ import org.springframework.stereotype.Component;
 @Setter(onMethod = @__(@Autowired))
 public class WelcomeAppService {
 
-    private IUserRepository userRepository;
+    private UserRepository userRepository;
     private AuthenticationService authenticationService;
 
     /**
@@ -35,7 +35,6 @@ public class WelcomeAppService {
      * @return
      */
     public String login(LoginUseCase.Request loginRequest) {
-        log.info("login request:{}", "login " + loginRequest.getUserName() + "##" + loginRequest.getPassword());
         return authenticationService.authenticate(loginRequest.getUserName(), loginRequest.getPassword());
     }
 

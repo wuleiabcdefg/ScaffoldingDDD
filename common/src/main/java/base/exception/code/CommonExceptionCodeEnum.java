@@ -6,6 +6,7 @@ package base.exception.code;
 public enum CommonExceptionCodeEnum implements ExceptionCode {
     JSON_TO_OBJECT_ERROR("解析JSON错误"),
     OBJECT_TO_JSON_ERROR("解析JSON错误"),
+    USER_OR_PASSWORD_ERROR("用户或密码无效"),
     UNKNOWN_ERROR("程序错误，请联系系统管理员"),
 
     ;
