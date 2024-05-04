@@ -46,4 +46,7 @@ public class User {
      */
     private List<RoleId> roles;
 
+    public boolean isAvailable() {
+        return false;
+    }
 }

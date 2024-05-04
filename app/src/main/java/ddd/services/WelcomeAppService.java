@@ -57,4 +57,5 @@ public class WelcomeAppService {
         resp.setUserId(userInfo.getUserId().id());
         return resp;
     }
+
 }
