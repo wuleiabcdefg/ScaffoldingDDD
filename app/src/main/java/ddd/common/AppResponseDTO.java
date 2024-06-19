@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @EqualsAndHashCode
-public class AppResponseDTO<T> {
+public class AppResponseDTO {
 
     /**
      * 业务请求是否成功
@@ -32,7 +32,7 @@ public class AppResponseDTO<T> {
     /**
      * 响应数据
      */
-    private T data;
+    private Object data;
 
     /**
      * 不可删除， jackson反序列化转JSON时使用
@@ -55,8 +55,8 @@ public class AppResponseDTO<T> {
      * @param data 业务数据可以是List、Entity等数据
      * @return 正确结果
      */
-    public static <T> AppResponseDTO<T> ok(T data) {
-        AppResponseDTO<T> tAppResponseDTO = new AppResponseDTO<>(Boolean.TRUE);
+    public static AppResponseDTO ok(Object data) {
+        AppResponseDTO tAppResponseDTO = new AppResponseDTO(Boolean.TRUE);
         tAppResponseDTO.setData(data);
         return tAppResponseDTO;
     }
@@ -66,12 +66,12 @@ public class AppResponseDTO<T> {
      *
      * @return 正确结果
      */
-    public static <T> AppResponseDTO<T> ok() {
+    public static AppResponseDTO ok() {
         return ok(null);
     }
 
-    public static AppResponseDTO<Void> error(AppErrorType errorType, ExceptionCode exceptionCode) {
-        AppResponseDTO<Void> tAppResponseDTO = new AppResponseDTO<>(Boolean.FALSE);
+    public static AppResponseDTO error(AppErrorType errorType, ExceptionCode exceptionCode) {
+        AppResponseDTO tAppResponseDTO = new AppResponseDTO(Boolean.FALSE);
         tAppResponseDTO.setErrorType(errorType.getErrorType());
         tAppResponseDTO.setMessage(exceptionCode.getMessage());
         tAppResponseDTO.setErrCode(exceptionCode.getCode());

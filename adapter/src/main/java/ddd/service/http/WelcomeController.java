@@ -18,7 +18,7 @@ public class WelcomeController {
      * @param loginRequest
      */
     @RequestMapping("/welcome/login")
-    public AppResponseDTO<String> login(@RequestBody LoginUseCase.Request loginRequest) {
+    public AppResponseDTO login(@RequestBody LoginUseCase.Request loginRequest) {
         final String token = welcomeAppService.login(loginRequest);
         return AppResponseDTO.ok(token);
     }

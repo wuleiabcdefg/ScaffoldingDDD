@@ -1,2 +1,2 @@
 rootProject.name = "ScaffoldingDDD"
-include("domain", "app", "infrastructure", "common", "start", "adapter")
+include("domain", "app", "infrastructure", "common", "server", "adapter")

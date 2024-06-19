@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public AppResponseDTO<Void> error(Exception ex) {
+    public AppResponseDTO error(Exception ex) {
         log.error("拦截异常打印 ", ex);
 
         AppErrorType errorType = AppErrorType.INTERNAL_ERROR;
