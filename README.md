@@ -23,6 +23,14 @@ Scaffolding Engineering based on DDD thinking and spring Framework
 用户角色权限分配
 用户角色
 
+### 安装
+gradle build
+### 运行
+gradle bootRun
+### 访问
+浏览器访问 http://localhost:8080/welcome
+
+
 1.1. 前言
 DDD这个思想呢，最早是Eric Evans（埃里克·埃文斯）在2003年《Domain-Driven Design –Tackling Complexity in the Heart of Software》书中提出的一个概念，该书翻译过来就是领域驱动设计—软件核心复杂性应对之道，但是提出的时候微服务当时并没有流行，所以一直没有火起来，DDD最近开始流行的原因，主要是借着微服务的东风。
 1.2. MVC模式 VS DDD模式
